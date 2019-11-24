@@ -6,3 +6,8 @@
 #define CODMWPOTCKHDIGIGO_BOSS_BATTLE_H
 
 #endif //CODMWPOTCKHDIGIGO_BOSS_BATTLE_H
+
+#include <iostream>
+#include <vector>
+
+using namespace std;

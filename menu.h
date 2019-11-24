@@ -18,7 +18,7 @@ public:
     void display_main_menu(string player_name) {
 
         cout << "What would you like to do " << player_name << "?" << endl;
-        cout << "1: Go battle CWB" << endl << "2: Power Up Stats by Eating" << endl << "3: See Current Stats" << endl << "4: Heal" << endl << "5: Exit" << endl;
+        cout << "1: Go battle CWB" << endl << "2: Power Up Stats by Eating" << endl << "3: See Current Stats" << endl << "4: Inventory" << endl << "5: Exit" << endl;
 
     }
 
@@ -46,7 +46,7 @@ public:
         cout << "Your current health is " << current_health << endl;
 
     }
-    
+
 
     void display_end () {
         cout << "Thanks for playing!" << endl;

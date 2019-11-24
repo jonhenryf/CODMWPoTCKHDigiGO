@@ -6,3 +6,8 @@
 #define CODMWPOTCKHDIGIGO_ENEMY_H
 
 #endif //CODMWPOTCKHDIGIGO_ENEMY_H
+
+#include <iostream>
+#include <vector>
+
+using namespace std;

@@ -6,6 +6,7 @@
 #include <vector>
 #include "player.h"
 #include "menu.h"
+#include "inventory.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ int main() {
 
     menu menu1;
     player player1;
+    inventory inventory1;
 
 
 
@@ -52,7 +54,16 @@ int main() {
        }
 
        else if (choice == 4) {
-           cout << "Do this 4" << endl;
+
+               cout << "Inventory testing with no items" << endl;
+               inventory1.print_inventory();
+
+               cout << "Now adding items..." << endl;
+               inventory1.add_to_inventory("Rusty Armor");
+               inventory1.add_to_inventory("Rusty Sword");
+               inventory1.add_to_inventory("Rusty Helmet");
+               inventory1.print_inventory();
+
        }
 
        else if (choice == 5) {
