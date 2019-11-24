@@ -72,6 +72,6 @@ public:
 
 private:
 
-    int choice;
+    int choice = 0;
 
 };

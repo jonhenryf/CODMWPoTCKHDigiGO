@@ -12,4 +12,19 @@
 
 using namespace std;
 
-//code for final boss battle here
+class final_boss {
+public:
+
+    void set_initial_stats () {
+
+        boss_health = 500;
+        boss_gains = 50;
+
+    }
+
+private:
+
+    int boss_health = 0;
+    int boss_gains = 0;
+
+};

@@ -7,6 +7,8 @@
 #include "player.h"
 #include "menu.h"
 #include "inventory.h"
+#include "boss_battle.h"
+#include "enemy.h"
 
 using namespace std;
 
