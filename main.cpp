@@ -13,21 +13,47 @@ using namespace std;
 int main() {
 
     string playername;
-    int choice;
+    int choice = 0;
+    int data_choice = 0;
 
     menu menu1;
     player player1;
     inventory inventory1;
 
 
+    menu1.display_save_menu();
+    menu1.set_choice();
+    data_choice = menu1.get_choice();
 
-    menu1.display_starting_menu();
-    player1.set_player_name();
+    if(data_choice == 1) {
+        cout << "Loading saved data..." << endl;
+        cout << "No saved data... Starting New Game" << endl << endl;
 
-    playername = player1.get_player_name();
+        menu1.display_starting_menu();
+        player1.set_player_name();
 
-    menu1.display_name(playername);
-    player1.set_initial_stats();
+        playername = player1.get_player_name();
+
+        menu1.display_name(playername);
+
+        player1.set_initial_stats();
+
+    }
+
+    else{
+        cout << "Starting New Game" << endl;
+
+        menu1.display_starting_menu();
+        player1.set_player_name();
+
+        playername = player1.get_player_name();
+
+        menu1.display_name(playername);
+
+        player1.set_initial_stats();
+
+    }
+
 
    while(1) {
 
@@ -67,7 +93,11 @@ int main() {
        }
 
        else if (choice == 5) {
-        break;
+            cout <<"Saving Game..." << endl;
+       }
+
+       else if(choice == 6) {
+           break;
        }
 
    }
