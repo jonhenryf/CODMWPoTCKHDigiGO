@@ -24,38 +24,53 @@ int main() {
     inventory inventory1;
 
 
-    menu1.display_save_menu();
-    menu1.set_choice();
-    data_choice = menu1.get_choice();
+    while(1) {
 
-    if(data_choice == 1) {
-        cout << "Loading saved data..." << endl;
-        cout << "No saved data... Starting New Game" << endl << endl;
+        menu1.display_save_menu();
+        menu1.set_choice();
+        data_choice = menu1.get_choice();
 
-        menu1.display_starting_menu();
-        player1.set_player_name();
+        if (data_choice == 1) {
+            cout << "Loading saved data..." << endl;
+            cout << "No saved data... Starting New Game" << endl << endl;
 
-        playername = player1.get_player_name();
+            menu1.display_starting_menu();
+            player1.set_player_name();
 
-        menu1.display_name(playername);
+            playername = player1.get_player_name();
 
-        player1.set_initial_stats();
+            menu1.display_name(playername);
+
+            player1.set_initial_stats();
+
+            break;
+
+        } else if (data_choice == 2) {
+            cout << "Starting New Game" << endl;
+
+            menu1.display_starting_menu();
+            player1.set_player_name();
+
+            playername = player1.get_player_name();
+
+            menu1.display_name(playername);
+
+            player1.set_initial_stats();
+
+            break;
+
+        } else if (data_choice == 3) {
+            menu1.display_end();
+            return 0;
+
+        }
+
+        else {
+            menu1.display_default();
+        }
 
     }
 
-    else{
-        cout << "Starting New Game" << endl;
-
-        menu1.display_starting_menu();
-        player1.set_player_name();
-
-        playername = player1.get_player_name();
-
-        menu1.display_name(playername);
-
-        player1.set_initial_stats();
-
-    }
 
 
    while(1) {
@@ -98,32 +113,36 @@ int main() {
        else if (choice == 5) {
             cout <<"Saving Game..." << endl;
 
-            string newitem;
-            int health_modifier = 0;
-
-            armor* base_armor1 = new base_armor();
-            base_armor1 -> health();
-            base_armor1 -> itemname();
-
-            armor* rust_armor1 = new rusty_armor(*base_armor1);
-            rust_armor1 -> health();
-            rust_armor1 -> itemname();
-
-            armor* plated_armor1 = new armor_large_plate(*rust_armor1);
-            health_modifier = plated_armor1 -> health();
-            newitem = plated_armor1 -> itemname();
-
-            cout << "Health modifier: " << health_modifier << endl;
-            cout << "New item: " << newitem << endl;
-
-            delete base_armor1;
-            delete rust_armor1;
+//            string newitem;
+//            int health_modifier = 0;
+//
+//            armor* base_armor1 = new base_armor();
+//            base_armor1 -> health();
+//            base_armor1 -> itemname();
+//
+//            armor* rust_armor1 = new rusty_armor(*base_armor1);
+//            rust_armor1 -> health();
+//            rust_armor1 -> itemname();
+//
+//            armor* plated_armor1 = new armor_large_plate(*rust_armor1);
+//            health_modifier = plated_armor1 -> health();
+//            newitem = plated_armor1 -> itemname();
+//
+//            cout << "Health modifier: " << health_modifier << endl;
+//            cout << "New item: " << newitem << endl;
+//
+//            delete base_armor1;
+//            delete rust_armor1;
+//            delete plated_armor1;
 
        }
 
        else if(choice == 6) {
            break;
        }
+
+       else
+           menu1.display_default();
 
    }
 

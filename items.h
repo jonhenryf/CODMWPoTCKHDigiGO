@@ -78,10 +78,86 @@ public:
     }
 };
 
+class bronze_armor: public armor_decorator{
+public:
+    bronze_armor(armor& decorator):armor_decorator(decorator)
+    {
+
+    }
+
+    virtual int health()
+    {
+        return armor_decorator::health() + 30;
+    }
+
+    virtual string itemname() {
+
+        return armor_decorator::itemname() + " (Bronze)";
+    }
+};
+
+class platinum_armor: public armor_decorator{
+public:
+    platinum_armor(armor& decorator):armor_decorator(decorator)
+    {
+
+    }
+
+    virtual int health()
+    {
+        return armor_decorator::health() + 50;
+    }
+
+    virtual string itemname() {
+
+        return armor_decorator::itemname() + " (Platinum)";
+    }
+};
+
+
+class diamond_armor: public armor_decorator{
+public:
+    diamond_armor(armor& decorator):armor_decorator(decorator)
+    {
+
+    }
+
+    virtual int health()
+    {
+        return armor_decorator::health() + 100;
+    }
+
+    virtual string itemname() {
+
+        return armor_decorator::itemname() + " (Diamond)";
+    }
+};
+
+
 class armor_large_plate : public armor_decorator {
 
 public:
     armor_large_plate(armor& decorator):armor_decorator(decorator)
+    {
+
+    }
+
+    virtual int health()
+    {
+        return armor_decorator::health() + 20;
+    }
+
+    virtual string itemname()
+    {
+        return armor_decorator::itemname() + " (Large Plate)";
+    }
+
+};
+
+class armor_medium_plate : public armor_decorator {
+
+public:
+    armor_medium_plate(armor& decorator):armor_decorator(decorator)
     {
 
     }
@@ -93,10 +169,13 @@ public:
 
     virtual string itemname()
     {
-        return armor_decorator::itemname() + " (Large Plate)";
+        return armor_decorator::itemname() + " (Medium Plate)";
     }
 
 };
+
+
+
 
 
 

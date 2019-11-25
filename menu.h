@@ -28,7 +28,11 @@ public:
     }
 
     void display_save_menu () {
-        cout << "Load previous data?" << endl << "1: Yes" << endl << "2: No" << endl << endl;
+        cout << "Load previous data?" << endl << "1: Yes" << endl << "2: No" << endl << "3: Exit" << endl;
+    }
+
+    void display_default () {
+        cout << "Please select a valid choice! Thanks! <3" << endl;
     }
 
     void display_name (string player_name) {
@@ -64,12 +68,6 @@ public:
     int get_choice () {
         return choice;
     }
-
-
-
-
-
-
 
 private:
 
