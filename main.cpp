@@ -9,6 +9,7 @@
 #include "inventory.h"
 #include "boss_battle.h"
 #include "enemy.h"
+#include "items.h"
 
 using namespace std;
 
@@ -96,6 +97,28 @@ int main() {
 
        else if (choice == 5) {
             cout <<"Saving Game..." << endl;
+
+            string newitem;
+            int health_modifier = 0;
+
+            armor* base_armor1 = new base_armor();
+            base_armor1 -> health();
+            base_armor1 -> itemname();
+
+            armor* rust_armor1 = new rusty_armor(*base_armor1);
+            rust_armor1 -> health();
+            rust_armor1 -> itemname();
+
+            armor* plated_armor1 = new armor_large_plate(*rust_armor1);
+            health_modifier = plated_armor1 -> health();
+            newitem = plated_armor1 -> itemname();
+
+            cout << "Health modifier: " << health_modifier << endl;
+            cout << "New item: " << newitem << endl;
+
+            delete base_armor1;
+            delete rust_armor1;
+
        }
 
        else if(choice == 6) {

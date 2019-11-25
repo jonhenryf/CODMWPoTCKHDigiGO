@@ -54,6 +54,7 @@ public:
 
     void display_end () {
         cout << "Thanks for playing!" << endl;
+
     }
 
     void set_choice () {
