@@ -4,4 +4,4 @@ project(CODMWPoTCKHDigiGO)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cheese main.cpp)
+add_executable(cheese main.cpp items.h)
