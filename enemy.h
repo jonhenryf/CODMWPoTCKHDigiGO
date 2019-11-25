@@ -16,20 +16,44 @@ using namespace std;
 
 class enemy {
 
+public:
+
+    virtual int attack()
+    {
+        return 0;
+    }
+
 };
 
-class ninja: public enemy {
-
+class pikachu: public enemy {
+public:
+    int attack() {
+        cout << "Pikachu used Volt Tackle!!" << endl << "-10 Health" << endl;
+        return 10;
+    }
 };
 
-class ghost: public enemy {
-
+class voldemort: public enemy {
+public:
+    int attack() {
+        cout << "Voldemort used Avada Kedavra!!" << endl << "-50 Health" << endl;
+        return 50;
+    }
 };
 
 class swiper: public enemy {
-
+public:
+    int attack() {
+        cout << "Swiper swiped your stuff!!" << endl << "-5 Health" << endl;
+        return 5;
+    }
 };
 
-class jomama: public enemy {
-
+class darthvader: public enemy {
+public:
+    int attack() {
+        cout << "Darth Vader is not your father... Darth Vader then uses force choke!!" << endl << "-50 Health" << endl;
+        return 50;
+    }
 };
+

@@ -24,6 +24,7 @@ int main() {
 
     Character player1;
     inventory inventory1;
+    thanos thanos1;
 
 
     while(1) {
@@ -44,6 +45,8 @@ int main() {
             menu1.display_name(playername);
 
             player1.set_initial_stats();
+            thanos1.set_initial_stats();
+
 
             break;
 
@@ -58,6 +61,7 @@ int main() {
             menu1.display_name(playername);
 
             player1.set_initial_stats();
+            thanos1.set_initial_stats();
 
             break;
 
