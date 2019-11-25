@@ -50,7 +50,7 @@ public:
     }
 
     virtual int health(){
-       return m_Decorator.health();
+        return m_Decorator.health();
     }
 
     virtual string itemname() {
@@ -173,6 +173,7 @@ public:
     }
 
 };
+
 
 
 

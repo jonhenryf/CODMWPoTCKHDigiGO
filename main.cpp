@@ -4,10 +4,11 @@
 
 #include <iostream>
 #include <vector>
-#include "player.h"
+#include "Character.h"
 #include "menu.h"
 #include "inventory.h"
-#include "boss_battle.h"
+#include "thanos.h"
+#include "game_data.h"
 #include "enemy.h"
 #include "items.h"
 
@@ -20,7 +21,8 @@ int main() {
     int data_choice = 0;
 
     menu menu1;
-    player player1;
+
+    Character player1;
     inventory inventory1;
 
 
@@ -70,7 +72,6 @@ int main() {
         }
 
     }
-
 
 
    while(1) {

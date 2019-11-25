@@ -1,44 +1,29 @@
 //
-// Created by mrjof on 11/23/2019.
+// Created by mrjof on 11/24/2019.
 //
 
-#ifndef CODMWPOTCKHDIGIGO_PLAYER_H
-#define CODMWPOTCKHDIGIGO_PLAYER_H
+#include "Character.h"
 
-#endif //CODMWPOTCKHDIGIGO_PLAYER_H
 
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-class player {
-
-public:
-
-void set_player_name() {
-
+void Character::set_player_name()
+{
     cin  >> player_name;
-
 }
 
-string get_player_name() {
-
+string Character::get_player_name()
+{
     return player_name;
-
 }
 
-void set_initial_stats () {
-
+void Character::set_initial_stats()
+{
     stats.push_back(30);
     stats.push_back(30);
     stats.push_back(50);
-
-
 }
 
-int get_max_health () {
-
+int Character::get_max_health()
+{
     for(int i = 0; i < stats.size(); i++)
     {
         if (i == 0)
@@ -50,8 +35,8 @@ int get_max_health () {
     return max_health;
 }
 
-int get_current_health () {
-
+int Character::get_current_health()
+{
     for(int i = 0; i < stats.size(); i++)
     {
         if (i == 1)
@@ -61,11 +46,10 @@ int get_current_health () {
     }
 
     return current_health;
-
 }
 
-int get_gains () {
-
+int Character::get_gains()
+{
     for(int i = 0; i < stats.size(); i++)
     {
         if (i == 2)
@@ -77,8 +61,8 @@ int get_gains () {
     return gains;
 }
 
-void add_max_health (int added_health) {
-
+void Character::add_max_health(int added_health)
+{
     for(int i = 0; i < stats.size(); i++)
     {
         if (i == 0)
@@ -86,11 +70,10 @@ void add_max_health (int added_health) {
             stats[i] = stats[i] + added_health;
         }
     }
-
 }
 
-void add_current_health (int added_health) {
-
+void Character::add_current_health(int added_health)
+{
     for(int i = 0; i < stats.size(); i++)
     {
         if (i == 1)
@@ -98,11 +81,10 @@ void add_current_health (int added_health) {
             stats[i] = stats[i] + added_health;
         }
     }
-
 }
 
-void subtract_current_health (int subtracted_health) {
-
+void Character::subtract_current_health(int subtracted_health)
+{
     for(int i = 0; i < stats.size(); i++)
     {
         if (i == 1)
@@ -110,11 +92,10 @@ void subtract_current_health (int subtracted_health) {
             stats[i] = stats[i] - subtracted_health;
         }
     }
-
 }
 
-void add_gains (int added_gains) {
-
+void Character::add_gains(int added_gains)
+{
     for(int i = 0; i < stats.size(); i++)
     {
         if (i == 2)
@@ -124,14 +105,3 @@ void add_gains (int added_gains) {
     }
 }
 
-
-private:
-
-    string player_name;
-
-    vector<int> stats;
-    int max_health = 0;
-    int current_health = 0;
-    int gains = 0;
-
-};

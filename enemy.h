@@ -13,3 +13,23 @@
 using namespace std;
 
 //code for multiple enemies will go here
+
+class enemy {
+
+};
+
+class ninja: public enemy {
+
+};
+
+class ghost: public enemy {
+
+};
+
+class swiper: public enemy {
+
+};
+
+class jomama: public enemy {
+
+};
