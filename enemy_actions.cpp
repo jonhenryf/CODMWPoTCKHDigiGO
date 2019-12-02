@@ -27,13 +27,13 @@ void enemy_actions::enemy_events(int enemy_choice)
 
     else if (enemy_choice == 2)
     {
-        cout << "Voldemort has appeared!" << endl;
+        cout << "Swiper has appeared!" << endl;
 
     }
 
     else if (enemy_choice == 3)
     {
-        cout << "Swiper has appeared!" << endl;
+        cout << "Voldemort has appeared!" << endl;
     }
 
     else if (enemy_choice == 4)
