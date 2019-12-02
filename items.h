@@ -174,6 +174,125 @@ public:
 
 };
 
+class sword {
+
+public:
+
+    virtual int gainz() = 0;
+    virtual string itemname() = 0;
+    virtual ~sword() {}
+
+private:
+
+
+};
+
+class base_sword: public sword
+{
+public:
+    virtual int gainz()
+    {
+        return 10;
+    }
+
+    virtual string itemname (){
+        return "Basic Sword";
+    }
+};
+
+class sword_decorator: public sword
+{
+public:
+    sword_decorator(sword& decorator):s_Decorator(decorator)
+    {
+
+    }
+
+    virtual int gainz(){
+        return s_Decorator.gainz();
+    }
+
+    virtual string itemname() {
+        return s_Decorator.itemname();
+    }
+private:
+    sword& s_Decorator;
+};
+
+class rusty_sword: public sword_decorator{
+public:
+    rusty_sword(sword& decorator):sword_decorator(decorator)
+    {
+
+    }
+
+    virtual int gainz()
+    {
+        return sword_decorator::gainz() - 5;
+    }
+
+    virtual string itemname() {
+
+        return sword_decorator::itemname() + " (Rusty)";
+    }
+};
+
+class bronze_sword: public sword_decorator{
+public:
+    bronze_sword(sword& decorator):sword_decorator(decorator)
+    {
+
+    }
+
+    virtual int gainz()
+    {
+        return sword_decorator::gainz() + 30;
+    }
+
+    virtual string itemname() {
+
+        return sword_decorator::itemname() + " (Bronze)";
+    }
+};
+
+class platinum_sword: public sword_decorator{
+public:
+    platinum_sword(sword& decorator):sword_decorator(decorator)
+    {
+
+    }
+
+    virtual int gainz()
+    {
+        return sword_decorator::gainz() + 50;
+    }
+
+    virtual string itemname() {
+
+        return sword_decorator::itemname() + " (Platinum)";
+    }
+};
+
+class diamond_sword: public sword_decorator{
+public:
+    diamond_sword(sword& decorator):sword_decorator(decorator)
+    {
+
+    }
+
+    virtual int gainz()
+    {
+        return sword_decorator::gainz() + 100;
+    }
+
+    virtual string itemname() {
+
+        return sword_decorator::itemname() + " (Diamond)";
+    }
+};
+
+
+
 
 
 

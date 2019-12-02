@@ -24,6 +24,8 @@ using namespace std;
 
 int main() {
 
+    srand(time(NULL));
+
     string playername;
     int choice = 0;
     int data_choice = 0;
