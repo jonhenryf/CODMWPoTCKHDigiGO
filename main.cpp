@@ -4,6 +4,11 @@
 
 #include <iostream>
 #include <vector>
+#include <ctime>
+#include <chrono>
+#include <random>
+
+
 #include "Character.h"
 #include "menu.h"
 #include "inventory.h"
@@ -11,6 +16,7 @@
 #include "game_data.h"
 #include "enemy.h"
 #include "items.h"
+#include "enemy_actions.h"
 
 using namespace std;
 
@@ -19,12 +25,15 @@ int main() {
     string playername;
     int choice = 0;
     int data_choice = 0;
+    int enemy_choice = 0;
 
     menu menu1;
 
     Character player1;
     inventory inventory1;
     thanos thanos1;
+    enemy_actions action1;
+    enemy enemy1;
 
 
     while(1) {
@@ -91,11 +100,32 @@ int main() {
        }
 
        else if (choice == 2) {
-           cout << "Adding stats as a test" << endl;
-           player1.add_max_health(10);
-           player1.add_current_health(10);
-           player1.subtract_current_health(20);
-           player1.add_gains(5);
+
+           cout << "Finding enemy..." << endl;
+           enemy_choice = action1.gen_random_enemy();
+
+           action1.enemy_events(enemy_choice);
+
+           if (enemy_choice == 1) {
+               cout << "Choose your attack!" << endl;
+           }
+
+           else if (enemy_choice == 2) {
+               cout << "Choose your attack" << endl;
+
+           }
+
+           else if (enemy_choice == 3) {
+               cout << "Choose your attack" << endl;
+
+           }
+
+           else if (enemy_choice == 4) {
+               cout << "Choose your attack" << endl;
+
+           }
+
+
        }
 
        else if (choice == 3) {
