@@ -12,7 +12,8 @@ int enemy_actions::gen_random_enemy()
 
 int enemy_actions::gen_random_drop()
 {
-    return (rand() % 4) + 1;
+    drop_value = (rand() % 4) + 1;
+    return drop_value;
 }
 
 

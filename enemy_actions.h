@@ -23,6 +23,7 @@ public:
 private:
 
     int enemy_choice = 0;
+    int drop_value = 0;
 
 };
 
