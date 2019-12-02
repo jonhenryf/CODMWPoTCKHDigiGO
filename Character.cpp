@@ -24,14 +24,6 @@ void Character::set_initial_stats()
 
 int Character::get_max_health()
 {
-    for(int i = 0; i < stats.size(); i++)
-    {
-        if (i == 0)
-        {
-            max_health = stats[i];
-        }
-    }
-
     return max_health;
 }
 
@@ -63,22 +55,16 @@ int Character::get_gains()
 
 void Character::add_max_health(int added_health)
 {
-    for(int i = 0; i < stats.size(); i++)
-    {
-        if (i == 0)
-        {
-            stats[i] = stats[i] + added_health;
-        }
-    }
+    max_health = max_health + added_health;
 }
 
-void Character::add_current_health(int added_health)
+void Character::heal_current_health()
 {
     for(int i = 0; i < stats.size(); i++)
     {
         if (i == 1)
         {
-            stats[i] = stats[i] + added_health;
+            stats[i] = max_health;
         }
     }
 }

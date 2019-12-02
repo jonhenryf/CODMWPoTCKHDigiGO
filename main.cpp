@@ -17,6 +17,8 @@
 #include "enemy.h"
 #include "items.h"
 #include "enemy_actions.h"
+#include "attacks.h"
+#include "attack_adapter.h"
 
 using namespace std;
 
@@ -26,6 +28,7 @@ int main() {
     int choice = 0;
     int data_choice = 0;
     int enemy_choice = 0;
+    int attack_choice = 0;
 
     menu menu1;
 
@@ -33,7 +36,22 @@ int main() {
     inventory inventory1;
     thanos thanos1;
     enemy_actions action1;
-    enemy enemy1;
+    attacks attack1;
+
+    //enemies
+    pikachu p;
+    swiper s;
+    voldemort v;
+    darthvader d;
+
+    Abstractenemy *enemy1 = &p;
+    Abstractenemy *enemy2 = &s;
+    Abstractenemy *enemy3 = &v;
+    Abstractenemy *enemy4 = &d;
+
+    //attacks
+    basic_attack *basicAttack = new basic_attack;
+    adapter *Adapter = new adapter;
 
 
     while(1) {
@@ -107,22 +125,59 @@ int main() {
            action1.enemy_events(enemy_choice);
 
            if (enemy_choice == 1) {
-               cout << "Choose your attack!" << endl;
+               while (player1.get_current_health() > 0 && enemy1 -> get_remaining_health() > 0) {
+                   cout << "Pikachu Health: " << enemy1->get_remaining_health() << endl;
+                   cout << "Your Health: " << player1.get_current_health() << endl;
+
+                   attack1.display_attacks();
+                   attack1.set_attack();
+                   attack_choice = attack1.get_attack();
+
+                   if (attack_choice == 1) {
+
+                       enemy1->set_remaining_health(basicAttack->attack(player1.get_gains()));
+                       player1.subtract_current_health(enemy1->attack());
+
+                   } else if (attack_choice == 2) {
+
+                       Adapter->switch_attack(basicAttack);
+                       enemy1->set_remaining_health(Adapter->attack(player1.get_gains()));
+                       player1.subtract_current_health(enemy1->attack());
+
+                   }
+               }
+
+               if (enemy1->get_remaining_health() <= 0) {
+                   cout << "You have defeated Pikachu!" << endl;
+                   // where a drop will be implemented
+               }
+
+               else
+               {
+                   cout << "Pikachu was too string... Try again next time..." << endl;
+               }
+
+               player1.heal_current_health();
+               enemy1 -> heal_health();
+               continue;
            }
 
+
            else if (enemy_choice == 2) {
-               cout << "Choose your attack" << endl;
+               cout << "not yet" << endl;
+               continue;
+
 
            }
 
            else if (enemy_choice == 3) {
-               cout << "Choose your attack" << endl;
-
+               cout << "not yet" << endl;
+               continue;
            }
 
            else if (enemy_choice == 4) {
-               cout << "Choose your attack" << endl;
-
+               cout << "not yet" << endl;
+               continue;
            }
 
 

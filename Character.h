@@ -20,7 +20,7 @@ public:
     int get_current_health ();
     int get_gains ();
     void add_max_health(int added_health);
-    void add_current_health (int added_health);
+    void heal_current_health ();
     void subtract_current_health (int subtracted_health);
     void add_gains (int added_gains);
 
@@ -30,7 +30,7 @@ private:
 
     string player_name;
     vector<int> stats;
-    int max_health = 0;
+    int max_health = 30;
     int current_health = 0;
     int gains = 0;
 
