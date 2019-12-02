@@ -120,13 +120,14 @@ int main() {
        else if (choice == 2) {
 
            cout << "Finding enemy..." << endl;
+
            enemy_choice = action1.gen_random_enemy();
 
            action1.enemy_events(enemy_choice);
 
            if (enemy_choice == 1) {
                while (player1.get_current_health() > 0 && enemy1 -> get_remaining_health() > 0) {
-                   cout << "Pikachu Health: " << enemy1->get_remaining_health() << endl;
+                   cout << "Pikachu's Health: " << enemy1->get_remaining_health() << endl;
                    cout << "Your Health: " << player1.get_current_health() << endl;
 
                    attack1.display_attacks();
@@ -154,7 +155,7 @@ int main() {
 
                else
                {
-                   cout << "Pikachu was too string... Try again next time..." << endl;
+                   cout << "Pikachu was too strong... Try again next time..." << endl;
                }
 
                player1.heal_current_health();
@@ -164,22 +165,118 @@ int main() {
 
 
            else if (enemy_choice == 2) {
-               cout << "not yet" << endl;
+               while (player1.get_current_health() > 0 && enemy2 -> get_remaining_health() > 0) {
+                   cout << "Swiper's Health: " << enemy2->get_remaining_health() << endl;
+                   cout << "Your Health: " << player1.get_current_health() << endl;
+
+                   attack1.display_attacks();
+                   attack1.set_attack();
+                   attack_choice = attack1.get_attack();
+
+                   if (attack_choice == 1) {
+
+                       enemy2->set_remaining_health(basicAttack->attack(player1.get_gains()));
+                       player1.subtract_current_health(enemy2->attack());
+
+                   } else if (attack_choice == 2) {
+
+                       Adapter->switch_attack(basicAttack);
+                       enemy2->set_remaining_health(Adapter->attack(player1.get_gains()));
+                       player1.subtract_current_health(enemy2->attack());
+
+                   }
+               }
+
+               if (enemy2->get_remaining_health() <= 0) {
+                   cout << "You have defeated Swiper!" << endl;
+                   // where a drop will be implemented
+               }
+
+               else
+               {
+                   cout << "Swiper was too strong... Try again next time..." << endl;
+               }
+
+               player1.heal_current_health();
+               enemy2 -> heal_health();
                continue;
-
-
            }
 
            else if (enemy_choice == 3) {
-               cout << "not yet" << endl;
+               while (player1.get_current_health() > 0 && enemy3 -> get_remaining_health() > 0) {
+                   cout << "Voldemort's Health: " << enemy3->get_remaining_health() << endl;
+                   cout << "Your Health: " << player1.get_current_health() << endl;
+
+                   attack1.display_attacks();
+                   attack1.set_attack();
+                   attack_choice = attack1.get_attack();
+
+                   if (attack_choice == 1) {
+
+                       enemy3->set_remaining_health(basicAttack->attack(player1.get_gains()));
+                       player1.subtract_current_health(enemy3->attack());
+
+                   } else if (attack_choice == 2) {
+
+                       Adapter->switch_attack(basicAttack);
+                       enemy3->set_remaining_health(Adapter->attack(player1.get_gains()));
+                       player1.subtract_current_health(enemy3->attack());
+
+                   }
+               }
+
+               if (enemy3->get_remaining_health() <= 0) {
+                   cout << "You have defeated Voldemort!" << endl;
+                   // where a drop will be implemented
+               }
+
+               else
+               {
+                   cout << "Voldemort was too strong... Try again next time..." << endl;
+               }
+
+               player1.heal_current_health();
+               enemy3 -> heal_health();
                continue;
            }
 
            else if (enemy_choice == 4) {
-               cout << "not yet" << endl;
+               while (player1.get_current_health() > 0 && enemy4 -> get_remaining_health() > 0) {
+                   cout << "Darth Vader's Health: " << enemy4->get_remaining_health() << endl;
+                   cout << "Your Health: " << player1.get_current_health() << endl;
+
+                   attack1.display_attacks();
+                   attack1.set_attack();
+                   attack_choice = attack1.get_attack();
+
+                   if (attack_choice == 1) {
+
+                       enemy3->set_remaining_health(basicAttack->attack(player1.get_gains()));
+                       player1.subtract_current_health(enemy4->attack());
+
+                   } else if (attack_choice == 2) {
+
+                       Adapter->switch_attack(basicAttack);
+                       enemy4->set_remaining_health(Adapter->attack(player1.get_gains()));
+                       player1.subtract_current_health(enemy4->attack());
+
+                   }
+               }
+
+               if (enemy4->get_remaining_health() <= 0) {
+                   cout << "You have defeated Darth Vader!" << endl;
+                   // where a drop will be implemented
+               }
+
+               else
+               {
+                   cout << "Darth Vader was too strong... Try again next time..." << endl;
+               }
+
+               player1.heal_current_health();
+               enemy4 -> heal_health();
                continue;
            }
-
 
        }
 

@@ -18,8 +18,11 @@ public:
 
     int gen_random_enemy();
     int gen_random_drop();
-    bool defeated(int enemy_health);
     void enemy_events(int enemy_choice);
+
+private:
+
+    int enemy_choice = 0;
 
 };
 

@@ -6,21 +6,13 @@
 
 int enemy_actions::gen_random_enemy()
 {
-    return (rand() % 4) + 1;
+    enemy_choice = (rand() % 4) + 1;
+    return enemy_choice;
 }
 
 int enemy_actions::gen_random_drop()
 {
     return (rand() % 4) + 1;
-}
-
-bool enemy_actions::defeated(int enemy_health)
-{
-    if (enemy_health <= 0){
-        return true;
-    }
-    else
-        return false;
 }
 
 
