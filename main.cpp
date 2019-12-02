@@ -31,6 +31,7 @@ int main() {
     int data_choice = 0;
     int enemy_choice = 0;
     int attack_choice = 0;
+    int drop_value = 0;
 
     menu menu1;
 
@@ -39,6 +40,9 @@ int main() {
     thanos thanos1;
     enemy_actions action1;
     attacks attack1;
+
+    //for item drop
+    string newitem;
 
     //enemies
     pikachu p;
@@ -153,6 +157,39 @@ int main() {
                if (enemy1->get_remaining_health() <= 0) {
                    cout << "You have defeated Pikachu!" << endl;
                    // where a drop will be implemented
+
+                   drop_value = (rand() % 2) + 1;
+
+                   if (drop_value == 1) {
+
+                       int health_modifier1 = 0;
+
+                       armor* base_armor1 = new base_armor();
+                       base_armor1 -> health();
+                       base_armor1 -> itemname();
+
+                       armor* bronze_armor1 = new bronze_armor(*base_armor1);
+                       bronze_armor1 -> health();
+                       bronze_armor1 -> itemname();
+
+                       armor* plated_armor1 = new armor_medium_plate(*bronze_armor1);
+                       health_modifier1 = plated_armor1 -> health();
+                       newitem = plated_armor1 -> itemname();
+
+                       cout << "Health modifier: " << health_modifier1 << endl;
+                       cout << "Dropped New item: " << newitem << endl;
+
+                       inventory1.add_to_inventory(newitem);
+
+                       delete base_armor1;
+                       delete bronze_armor1;
+                       delete plated_armor1;
+
+                   }
+
+                   else if(drop_value == 2) {
+                       cout << "Nothing has dropped..." << endl;
+                   }
                }
 
                else
@@ -192,6 +229,36 @@ int main() {
                if (enemy2->get_remaining_health() <= 0) {
                    cout << "You have defeated Swiper!" << endl;
                    // where a drop will be implemented
+
+                   drop_value = (rand() % 2) + 1;
+
+                   if (drop_value == 1) {
+
+                       int gainz_modifier1 = 0;
+
+                       sword* base_sword1 = new base_sword();
+                       base_sword1 -> gainz();
+                       base_sword1 -> itemname();
+
+                       sword* bronze_sword1 = new bronze_sword(*base_sword1);
+                       gainz_modifier1 = bronze_sword1 -> gainz();
+                       newitem = bronze_sword1 -> itemname();
+
+                       cout << "Gainz modifier: " << gainz_modifier1 << endl;
+                       cout << "Dropped New item: " << newitem << endl;
+
+                       inventory1.add_to_inventory(newitem);
+
+                       delete base_sword1;
+                       delete bronze_sword1;
+
+                   }
+
+                   else if (drop_value == 2) {
+
+                       cout << "Nothing has dropped..." << endl;
+
+                   }
                }
 
                else
@@ -229,7 +296,43 @@ int main() {
 
                if (enemy3->get_remaining_health() <= 0) {
                    cout << "You have defeated Voldemort!" << endl;
-                   // where a drop will be implemented
+
+                   drop_value = (rand() % 2) + 1;
+
+                   if (drop_value == 1) {
+
+                        int health_modifier = 0;
+
+                        armor* base_armor1 = new base_armor();
+                        base_armor1 -> health();
+                        base_armor1 -> itemname();
+
+                        armor* platinum_armor1 = new platinum_armor(*base_armor1);
+                        platinum_armor1 -> health();
+                        platinum_armor1 -> itemname();
+
+                        armor* plated_armor1 = new armor_large_plate(*platinum_armor1);
+                        health_modifier = plated_armor1 -> health();
+                        newitem = plated_armor1 -> itemname();
+
+                        cout << "Health modifier: " << health_modifier << endl;
+                        cout << "Dropped New item: " << newitem << endl;
+
+                       inventory1.add_to_inventory(newitem);
+
+                        delete base_armor1;
+                        delete platinum_armor1;
+                        delete plated_armor1;
+
+
+                   }
+
+                   else if (drop_value == 2) {
+
+                       cout << "Nothing has dropped..." << endl;
+
+                   }
+
                }
 
                else
@@ -266,8 +369,38 @@ int main() {
                }
 
                if (enemy4->get_remaining_health() <= 0) {
+
                    cout << "You have defeated Darth Vader!" << endl;
-                   // where a drop will be implemented
+
+                   drop_value = (rand() % 2) + 1;
+
+                   if (drop_value == 1) {
+
+                       int gainz_modifier = 0;
+
+                       sword* base_sword1 = new base_sword();
+                       base_sword1 -> gainz();
+                       base_sword1 -> itemname();
+
+                       sword* diamond_sword1 = new diamond_sword(*base_sword1);
+                       gainz_modifier = diamond_sword1 -> gainz();
+                       newitem = diamond_sword1 -> itemname();
+
+                       cout << "Gainz modifier: " << gainz_modifier << endl;
+                       cout << "Dropped New item: " << newitem << endl;
+
+                       inventory1.add_to_inventory(newitem);
+
+                       delete base_sword1;
+                       delete diamond_sword1;
+
+                   }
+
+                   else if (drop_value == 2) {
+
+                       cout << "Nothing has dropped..." << endl;
+
+                   }
                }
 
                else
@@ -288,13 +421,6 @@ int main() {
 
        else if (choice == 4) {
 
-               cout << "Inventory testing with no items" << endl;
-               inventory1.print_inventory();
-
-               cout << "Now adding items..." << endl;
-               inventory1.add_to_inventory("Rusty Armor");
-               inventory1.add_to_inventory("Rusty Sword");
-               inventory1.add_to_inventory("Rusty Helmet");
                inventory1.print_inventory();
 
        }
@@ -302,27 +428,6 @@ int main() {
        else if (choice == 5) {
             cout <<"Saving Game..." << endl;
 
-//            string newitem;
-//            int health_modifier = 0;
-//
-//            armor* base_armor1 = new base_armor();
-//            base_armor1 -> health();
-//            base_armor1 -> itemname();
-//
-//            armor* rust_armor1 = new rusty_armor(*base_armor1);
-//            rust_armor1 -> health();
-//            rust_armor1 -> itemname();
-//
-//            armor* plated_armor1 = new armor_large_plate(*rust_armor1);
-//            health_modifier = plated_armor1 -> health();
-//            newitem = plated_armor1 -> itemname();
-//
-//            cout << "Health modifier: " << health_modifier << endl;
-//            cout << "New item: " << newitem << endl;
-//
-//            delete base_armor1;
-//            delete rust_armor1;
-//            delete plated_armor1;
 
        }
 
