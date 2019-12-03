@@ -39,6 +39,7 @@ int main() {
     thanos thanos1;
     enemy_actions action1;
     attacks attack1;
+    game_data gamedata1;
 
     //for item drop
     string newitem;
@@ -130,7 +131,7 @@ int main() {
 
            action1.enemy_events(enemy_choice);
 
-           if (enemy_choice == 1) {
+           if (enemy_choice == 1 || enemy_choice == 2) {
                enemy1 -> heal_health();
                while (player1.get_current_health() > 0 && enemy1 -> get_remaining_health() > 0) {
                    cout << "Pikachu's Health: " << enemy1->get_remaining_health() << endl;
@@ -151,6 +152,9 @@ int main() {
                        enemy1->set_remaining_health(Adapter->attack(player1.get_gains()));
                        player1.subtract_current_health(enemy1->attack());
 
+                   }
+                   else {
+                       menu1.display_default();
                    }
                }
 
@@ -186,6 +190,7 @@ int main() {
                        }
                        else {
                            inventory1.add_to_inventory(newitem);
+                           player1.add_max_health(health_modifier1);
                        }
 
                        delete base_armor1;
@@ -209,7 +214,7 @@ int main() {
            }
 
 
-           else if (enemy_choice == 2) {
+           else if (enemy_choice == 3 || enemy_choice == 4) {
                enemy2 -> heal_health();
                while (player1.get_current_health() > 0 && enemy2 -> get_remaining_health() > 0) {
                    cout << "Swiper's Health: " << enemy2->get_remaining_health() << endl;
@@ -230,6 +235,9 @@ int main() {
                        enemy2->set_remaining_health(Adapter->attack(player1.get_gains()));
                        player1.subtract_current_health(enemy2->attack());
 
+                   }
+                   else {
+                       menu1.display_default();
                    }
                }
 
@@ -261,6 +269,8 @@ int main() {
                        }
                        else {
                            inventory1.add_to_inventory(newitem);
+                           player1.add_gains(gainz_modifier1);
+
                        }
 
                        delete base_sword1;
@@ -284,7 +294,7 @@ int main() {
                continue;
            }
 
-           else if (enemy_choice == 3) {
+           else if (enemy_choice == 5) {
                enemy3 -> heal_health();
                while (player1.get_current_health() > 0 && enemy3 -> get_remaining_health() > 0) {
                    cout << "Voldemort's Health: " << enemy3->get_remaining_health() << endl;
@@ -305,6 +315,9 @@ int main() {
                        enemy3->set_remaining_health(Adapter->attack(player1.get_gains()));
                        player1.subtract_current_health(enemy3->attack());
 
+                   }
+                   else {
+                       menu1.display_default();
                    }
                }
 
@@ -339,6 +352,8 @@ int main() {
                        }
                        else {
                            inventory1.add_to_inventory(newitem);
+                           player1.add_max_health(health_modifier);
+
                        }
 
                         delete base_armor1;
@@ -366,7 +381,7 @@ int main() {
                continue;
            }
 
-           else if (enemy_choice == 4) {
+           else if (enemy_choice == 6) {
                enemy4 -> heal_health();
                while (player1.get_current_health() > 0 && enemy4 -> get_remaining_health() > 0) {
                    cout << "Darth Vader's Health: " << enemy4->get_remaining_health() << endl;
@@ -382,11 +397,13 @@ int main() {
                        player1.subtract_current_health(enemy4->attack());
 
                    } else if (attack_choice == 2) {
-
                        Adapter->switch_attack(basicAttack);
                        enemy4->set_remaining_health(Adapter->attack(player1.get_gains()));
                        player1.subtract_current_health(enemy4->attack());
 
+                   }
+                   else {
+                       menu1.display_default();
                    }
                }
 
@@ -418,6 +435,7 @@ int main() {
                        }
                        else {
                            inventory1.add_to_inventory(newitem);
+                           player1.add_gains (gainz_modifier);
                        }
 
                        delete base_sword1;
@@ -455,6 +473,7 @@ int main() {
 
        else if (choice == 5) {
             cout <<"Saving Game..." << endl;
+            gamedata1.savedata(inventory1.get_inventory(), player1.get_player_name());
 
 
        }

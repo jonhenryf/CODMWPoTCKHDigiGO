@@ -18,7 +18,7 @@ public:
     void print_inventory();
     bool inventory_is_empty ();
     bool check_inventory(string item);
-
+    vector<string> get_inventory();
 
 private:
 

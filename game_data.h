@@ -5,8 +5,15 @@
 #ifndef CODMWPOTCKHDIGIGO_GAME_DATA_H
 #define CODMWPOTCKHDIGIGO_GAME_DATA_H
 
-
+#include <iostream>
+#include <fstream>
+#include <vector>
+using namespace std;
 class game_data {
+
+public:
+    void savedata(vector<string> inventory, string name);
+//    void loaddata();
 
 };
 

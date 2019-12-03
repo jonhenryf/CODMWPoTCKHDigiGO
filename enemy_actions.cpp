@@ -6,7 +6,7 @@
 
 int enemy_actions::gen_random_enemy()
 {
-    enemy_choice = (rand() % 4) + 1;
+    enemy_choice = (rand() % 6) + 1;
     return enemy_choice;
 }
 
@@ -19,24 +19,24 @@ int enemy_actions::gen_random_drop()
 
 void enemy_actions::enemy_events(int enemy_choice)
 {
-    if(enemy_choice == 1)
+    if(enemy_choice == 1 || enemy_choice == 2)
     {
         cout << "Pikachu has appeared!" << endl;
 
     }
 
-    else if (enemy_choice == 2)
+    else if (enemy_choice == 3 || enemy_choice == 4)
     {
         cout << "Swiper has appeared!" << endl;
 
     }
 
-    else if (enemy_choice == 3)
+    else if (enemy_choice == 5)
     {
         cout << "Voldemort has appeared!" << endl;
     }
 
-    else if (enemy_choice == 4)
+    else if (enemy_choice == 6)
     {
         cout << "Darth Vader has appeared!" << endl;
     }
