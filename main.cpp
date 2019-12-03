@@ -376,7 +376,7 @@ int main() {
 
                    if (attack_choice == 1) {
 
-                       enemy3->set_remaining_health(basicAttack->attack(player1.get_gains()));
+                       enemy4->set_remaining_health(basicAttack->attack(player1.get_gains()));
                        player1.subtract_current_health(enemy4->attack());
 
                    } else if (attack_choice == 2) {
