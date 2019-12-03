@@ -16,10 +16,16 @@ void game_data::savedata(vector<string> inventory, string name) {
     myfile.close();
 }
 
-//void game_data::loaddata() {
-//    ofstream myfile;
-//    myfile.open("savedata.txt");
-//    string name1;
-//    myfile >> name1;
-//
-//}
+vector<string> game_data::loaddata() {
+    ifstream myfile;
+    myfile.open("savedata.txt");
+    vector<string> inv;
+    string data1;
+    while(getline(myfile, data1))
+    {
+        cout << data1 << endl;
+        inv.push_back(data1);
+    }
+    myfile.close();
+    return inv;
+}

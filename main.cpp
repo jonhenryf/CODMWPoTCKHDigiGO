@@ -68,40 +68,52 @@ int main() {
 
         if (data_choice == 1) {
             cout << "Loading saved data..." << endl;
-            cout << "No saved data... Starting New Game" << endl << endl;
+            vector<string> savedata = gamedata1.loaddata();
+//            cout << "No saved data... Starting New Game" << endl << endl;
 
-            menu1.display_starting_menu();
-            player1.set_player_name();
-
-            playername = player1.get_player_name();
-
+            playername = savedata[0];
             menu1.display_name(playername);
-
+            savedata.erase(savedata.begin());
             player1.set_initial_stats();
             thanos1.set_initial_stats();
-
-
+            if (!savedata.empty()) {
+                while (!savedata.empty()) {
+                    if (savedata[0] == "Basic Armor (Bronze) (Medium Plate)")
+                    {
+                        player1.add_max_health(40);
+                    }
+                    else if (savedata[0] == "Basic Sword (Diamond)")
+                    {
+                        player1.add_gains(110);
+                    }
+                    else if (savedata[0] == "Basic Sword (Bronze)")
+                    {
+                        player1.add_gains(40);
+                    }
+                    else if (savedata[0] == "Basic Armor (Platinum) (Large Plate)")
+                    {
+                        player1.add_max_health(60);
+                    }
+                    inventory1.add_to_inventory(savedata[0]);
+                    savedata.erase(savedata.begin());
+                }
+                player1.heal_current_health();
+            }
             break;
 
         } else if (data_choice == 2) {
             cout << "Starting New Game" << endl;
-
             menu1.display_starting_menu();
             player1.set_player_name();
-
             playername = player1.get_player_name();
-
             menu1.display_name(playername);
-
             player1.set_initial_stats();
             thanos1.set_initial_stats();
-
             break;
 
         } else if (data_choice == 3) {
             menu1.display_end();
             return 0;
-
         }
 
         else {
@@ -142,8 +154,9 @@ int main() {
                    attack_choice = attack1.get_attack();
 
                    if (attack_choice == 1) {
+                       cout << "Attack Failed!" << endl;
 
-                       enemy1->set_remaining_health(basicAttack->attack(player1.get_gains()));
+//                       enemy1->set_remaining_health(basicAttack->attack(player1.get_gains()));
                        player1.subtract_current_health(enemy1->attack());
 
                    } else if (attack_choice == 2) {
@@ -175,7 +188,6 @@ int main() {
                        armor* bronze_armor1 = new bronze_armor(*base_armor1);
                        bronze_armor1 -> health();
                        bronze_armor1 -> itemname();
-
                        armor* plated_armor1 = new armor_medium_plate(*bronze_armor1);
                        health_modifier1 = plated_armor1 -> health();
                        newitem = plated_armor1 -> itemname();
@@ -234,7 +246,6 @@ int main() {
                        Adapter->switch_attack(basicAttack);
                        enemy2->set_remaining_health(Adapter->attack(player1.get_gains()));
                        player1.subtract_current_health(enemy2->attack());
-
                    }
                    else {
                        menu1.display_default();
@@ -263,28 +274,19 @@ int main() {
                        cout << "Dropped New item: " << newitem << endl;
 
                        if(inventory1.check_inventory(newitem)){
-
                            cout << "You already have this item!" << endl;
-
                        }
                        else {
                            inventory1.add_to_inventory(newitem);
                            player1.add_gains(gainz_modifier1);
-
                        }
-
                        delete base_sword1;
                        delete bronze_sword1;
-
                    }
-
                    else if (drop_value == 2) {
-
                        cout << "Nothing has dropped..." << endl;
-
                    }
                }
-
                else
                {
                    cout << "Swiper was too strong... Try again next time..." << endl;
@@ -305,8 +307,8 @@ int main() {
                    attack_choice = attack1.get_attack();
 
                    if (attack_choice == 1) {
-
-                       enemy3->set_remaining_health(basicAttack->attack(player1.get_gains()));
+                       cout << "Attack Failed!" << endl;
+//                       enemy3->set_remaining_health(basicAttack->attack(player1.get_gains()));
                        player1.subtract_current_health(enemy3->attack());
 
                    } else if (attack_choice == 2) {
@@ -346,36 +348,24 @@ int main() {
                         cout << "Dropped New item: " << newitem << endl;
 
                        if(inventory1.check_inventory(newitem)){
-
                            cout << "You already have this item!" << endl;
-
                        }
                        else {
                            inventory1.add_to_inventory(newitem);
                            player1.add_max_health(health_modifier);
-
                        }
-
                         delete base_armor1;
                         delete platinum_armor1;
                         delete plated_armor1;
-
-
                    }
-
                    else if (drop_value == 2) {
-
                        cout << "Nothing has dropped..." << endl;
-
                    }
-
                }
-
                else
                {
                    cout << "Voldemort was too strong... Try again next time..." << endl;
                }
-
                player1.heal_current_health();
 
                continue;
@@ -392,15 +382,13 @@ int main() {
                    attack_choice = attack1.get_attack();
 
                    if (attack_choice == 1) {
-
                        enemy4->set_remaining_health(basicAttack->attack(player1.get_gains()));
                        player1.subtract_current_health(enemy4->attack());
-
                    } else if (attack_choice == 2) {
-                       Adapter->switch_attack(basicAttack);
-                       enemy4->set_remaining_health(Adapter->attack(player1.get_gains()));
+                       cout << "Attack Failed!" << endl;
+//                       Adapter->switch_attack(basicAttack);
+//                       enemy4->set_remaining_health(Adapter->attack(player1.get_gains()));
                        player1.subtract_current_health(enemy4->attack());
-
                    }
                    else {
                        menu1.display_default();
@@ -429,24 +417,18 @@ int main() {
                        cout << "Dropped New item: " << newitem << endl;
 
                        if(inventory1.check_inventory(newitem)){
-
                            cout << "You already have this item!" << endl;
-
                        }
                        else {
                            inventory1.add_to_inventory(newitem);
                            player1.add_gains (gainz_modifier);
                        }
-
                        delete base_sword1;
                        delete diamond_sword1;
-
                    }
 
                    else if (drop_value == 2) {
-
                        cout << "Nothing has dropped..." << endl;
-
                    }
                }
 
@@ -454,7 +436,6 @@ int main() {
                {
                    cout << "Darth Vader was too strong... Try again next time..." << endl;
                }
-
                player1.heal_current_health();
                continue;
            }
@@ -466,16 +447,12 @@ int main() {
        }
 
        else if (choice == 4) {
-
                inventory1.print_inventory();
-
        }
 
        else if (choice == 5) {
             cout <<"Saving Game..." << endl;
             gamedata1.savedata(inventory1.get_inventory(), player1.get_player_name());
-
-
        }
 
        else if(choice == 6) {

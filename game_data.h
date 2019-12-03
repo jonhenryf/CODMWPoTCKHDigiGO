@@ -13,7 +13,7 @@ class game_data {
 
 public:
     void savedata(vector<string> inventory, string name);
-//    void loaddata();
+    vector<string> loaddata();
 
 };
 
