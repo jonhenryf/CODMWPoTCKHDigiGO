@@ -132,7 +132,61 @@ int main() {
        choice = menu1.get_choice();
 
        if (choice == 1) {
-           cout << "Do this" << endl;
+           if (!thanos1.is_alive())
+           {
+               cout << "You have already defeated thanos. Stay tuned for the next boss update!" << endl;
+           }
+           else {
+               while (player1.get_current_health() > 0 && thanos1.is_alive()) {
+                   cout << "Thanos's Health: " << thanos1.get_health() << endl;
+                   cout << "Your Health: " << player1.get_current_health() << endl;
+
+                   attack1.display_attacks();
+                   attack1.set_attack();
+                   attack_choice = attack1.get_attack();
+
+                   if (attack_choice == 1) {
+
+                       thanos1.take_damage((basicAttack->attack(player1.get_gains())), attack_choice);
+                       if (thanos1.get_health() > 0) {
+                           player1.subtract_current_health(thanos1.get_gainz());
+                       }
+                   } else if (attack_choice == 2) {
+
+                       Adapter->switch_attack(basicAttack);
+                       thanos1.take_damage((basicAttack->attack(player1.get_gains())), attack_choice);
+                       if (thanos1.get_health() > 0) {
+                           player1.subtract_current_health(thanos1.get_gainz());
+                       }
+                   } else {
+                       menu1.display_default();
+                   }
+                   if (thanos1.is_alive()) {
+                       thanos1.weakness_change();
+                   }
+                   if (player1.get_current_health() <= 0) {
+                       cout << "You don't feel so good Mr. Stark..." << endl;
+                       if (!inventory1.inventory_is_empty()) {
+                           string temp = inventory1.remove_from_inventory();
+                           thanos1.steal_item(temp);
+                           cout << "Thanos steals one of your items from your inventory." << endl;
+                           cout << "Expect to find him stronger than before." << endl;
+
+                           if (temp == "Basic Armor (Bronze) (Medium Plate)") {
+                               player1.add_max_health(-40);
+                           } else if (temp == "Basic Sword (Diamond)") {
+                               player1.add_gains(-110);
+                           } else if (temp == "Basic Sword (Bronze)") {
+                               player1.add_gains(-40);
+                           } else if (temp == "Basic Armor (Platinum) (Large Plate)") {
+                               player1.add_max_health(-60);
+                           }
+                           cout << "You feel your strength leaving you..." << endl;
+                       }
+                   }
+               }
+               player1.heal_current_health();
+           }
        }
 
        else if (choice == 2) {

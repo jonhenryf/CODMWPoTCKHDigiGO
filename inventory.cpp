@@ -8,6 +8,14 @@ void inventory::add_to_inventory(string item)
 {
     inventory.push_back(item);
 }
+
+string inventory::remove_from_inventory()
+{
+    string temp = inventory[0];
+    inventory.erase(inventory.begin());
+    return temp;
+}
+
 vector<string> inventory::get_inventory(){
     return inventory;
 }

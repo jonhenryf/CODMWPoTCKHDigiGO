@@ -19,6 +19,8 @@ public:
     bool inventory_is_empty ();
     bool check_inventory(string item);
     vector<string> get_inventory();
+    string remove_from_inventory();
+
 
 private:
 
