@@ -8,7 +8,7 @@
 #include <chrono>
 #include <random>
 
-
+// class and header files
 #include "Character.h"
 #include "menu.h"
 #include "inventory.h"
@@ -34,7 +34,6 @@ int main() {
     int drop_value = 0;
 
     menu menu1;
-
     Character player1;
     inventory inventory1;
     thanos thanos1;
@@ -179,7 +178,14 @@ int main() {
                        cout << "Health modifier: " << health_modifier1 << endl;
                        cout << "Dropped New item: " << newitem << endl;
 
-                       inventory1.add_to_inventory(newitem);
+                       if(inventory1.check_inventory(newitem)){
+
+                           cout << "You already have this item!" << endl;
+
+                       }
+                       else {
+                           inventory1.add_to_inventory(newitem);
+                       }
 
                        delete base_armor1;
                        delete bronze_armor1;
@@ -247,7 +253,14 @@ int main() {
                        cout << "Gainz modifier: " << gainz_modifier1 << endl;
                        cout << "Dropped New item: " << newitem << endl;
 
-                       inventory1.add_to_inventory(newitem);
+                       if(inventory1.check_inventory(newitem)){
+
+                           cout << "You already have this item!" << endl;
+
+                       }
+                       else {
+                           inventory1.add_to_inventory(newitem);
+                       }
 
                        delete base_sword1;
                        delete bronze_sword1;
@@ -318,7 +331,14 @@ int main() {
                         cout << "Health modifier: " << health_modifier << endl;
                         cout << "Dropped New item: " << newitem << endl;
 
-                       inventory1.add_to_inventory(newitem);
+                       if(inventory1.check_inventory(newitem)){
+
+                           cout << "You already have this item!" << endl;
+
+                       }
+                       else {
+                           inventory1.add_to_inventory(newitem);
+                       }
 
                         delete base_armor1;
                         delete platinum_armor1;
@@ -389,7 +409,14 @@ int main() {
                        cout << "Gainz modifier: " << gainz_modifier << endl;
                        cout << "Dropped New item: " << newitem << endl;
 
-                       inventory1.add_to_inventory(newitem);
+                       if(inventory1.check_inventory(newitem)){
+
+                           cout << "You already have this item!" << endl;
+
+                       }
+                       else {
+                           inventory1.add_to_inventory(newitem);
+                       }
 
                        delete base_sword1;
                        delete diamond_sword1;

@@ -17,6 +17,7 @@ public:
     void add_to_inventory(string item);
     void print_inventory();
     bool inventory_is_empty ();
+    bool check_inventory(string item);
 
 
 private:

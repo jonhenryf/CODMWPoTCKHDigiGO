@@ -29,3 +29,16 @@ bool inventory::inventory_is_empty()
     } else
         return true;
 }
+
+bool inventory::check_inventory(string item)
+{
+    for (int i = 0; i < inventory.size(); i++) {
+        if(inventory[i] == item) {
+            return true;
+        }
+        else
+            return false;
+    }
+    return false;
+}
+
