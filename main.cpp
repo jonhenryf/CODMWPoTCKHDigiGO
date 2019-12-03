@@ -131,6 +131,7 @@ int main() {
            action1.enemy_events(enemy_choice);
 
            if (enemy_choice == 1) {
+               enemy1 -> heal_health();
                while (player1.get_current_health() > 0 && enemy1 -> get_remaining_health() > 0) {
                    cout << "Pikachu's Health: " << enemy1->get_remaining_health() << endl;
                    cout << "Your Health: " << player1.get_current_health() << endl;
@@ -204,12 +205,12 @@ int main() {
                }
 
                player1.heal_current_health();
-               enemy1 -> heal_health();
                continue;
            }
 
 
            else if (enemy_choice == 2) {
+               enemy2 -> heal_health();
                while (player1.get_current_health() > 0 && enemy2 -> get_remaining_health() > 0) {
                    cout << "Swiper's Health: " << enemy2->get_remaining_health() << endl;
                    cout << "Your Health: " << player1.get_current_health() << endl;
@@ -280,11 +281,11 @@ int main() {
                }
 
                player1.heal_current_health();
-               enemy2 -> heal_health();
                continue;
            }
 
            else if (enemy_choice == 3) {
+               enemy3 -> heal_health();
                while (player1.get_current_health() > 0 && enemy3 -> get_remaining_health() > 0) {
                    cout << "Voldemort's Health: " << enemy3->get_remaining_health() << endl;
                    cout << "Your Health: " << player1.get_current_health() << endl;
@@ -361,11 +362,12 @@ int main() {
                }
 
                player1.heal_current_health();
-               enemy3 -> heal_health();
+
                continue;
            }
 
            else if (enemy_choice == 4) {
+               enemy4 -> heal_health();
                while (player1.get_current_health() > 0 && enemy4 -> get_remaining_health() > 0) {
                    cout << "Darth Vader's Health: " << enemy4->get_remaining_health() << endl;
                    cout << "Your Health: " << player1.get_current_health() << endl;
@@ -376,7 +378,7 @@ int main() {
 
                    if (attack_choice == 1) {
 
-                       enemy3->set_remaining_health(basicAttack->attack(player1.get_gains()));
+                       enemy4->set_remaining_health(basicAttack->attack(player1.get_gains()));
                        player1.subtract_current_health(enemy4->attack());
 
                    } else if (attack_choice == 2) {
@@ -436,7 +438,6 @@ int main() {
                }
 
                player1.heal_current_health();
-               enemy4 -> heal_health();
                continue;
            }
 
